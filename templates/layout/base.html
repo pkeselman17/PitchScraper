@@ -1,0 +1,39 @@
+{%load staticfiles%}
+<html>
+	<head>
+		<title>List of Sports</title>
+		<link rel="stylesheet" href="{%static 'css/foundation.min.css'%}"/>
+		<script src="{%static 'js/vendor/jquery.js' %}"></script>
+		<script src="{%static 'js/foundation/foundation.js' %}"></script>
+		<script src="{%static 'js/foundation/foundation.topbar.js' %}"></script>				
+	</head>
+	<nav class="top-bar" data-topbar role="navigation">
+		<ul class="title-area">
+			<li class="name">
+				<h1><a href="#">PitchScraper</a></h1>
+			</li>
+		</ul>
+		
+		<section class="top-bar-section">
+			<ul class="right">
+				<li class="active"><a href="#">Right Button Active</a></li>
+				<li class="has-dropdown">
+					<a href="#">Profile Dropdown</a>
+					<ul class="dropdown">
+						<li><a href="#">First dropdown link</a></li>
+						<li class="active"><a href="#">Active link in dropdown</a></li>
+					</ul>
+				</li>
+			</ul>
+			
+			<ul class="left">
+				<li><a href="#">Left Nav button</a></li>
+			</ul>
+		</section>
+	</nav>
+	{%block content%}
+	{%endblock%}
+	<script>
+		$(document).foundation();
+	</script>
+</html>
