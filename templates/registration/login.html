@@ -9,27 +9,12 @@
 		<h2>Login</h2>
 	</div>
 </div>
-	<form method="post" action="{% url 'django.contrib.auth.views.login' %}">
+	<form method="post" action=".">
 		{% csrf_token %}
-		<div class="row">
-			<div class="large-4 columns">
-				{{ form.username.label_tag }}
-				{{ form.username }}
-			</div>
-		</div>
-		<div class="row">
-			<div class="large-4 columns">
-				{{ form.password.label_tag }}
-				{{ form.password }}
-			</div>
-		</div>
-		<div class="row">
-			<div class="large-4 columns">
-				<input type="submit" class="button" value="Login"/>
-				<input type="hidden" name="next" value="{{ next }}"/>
-			</div>
-		</div>	
+		{{form.as_p}}
+		
+		<input type="submit" class="button" value="Login"/>
+		<input type="hidden" name="next" value="{{ next }}"/>
 	</form>
-
-
+	<p>Not registered? <a href="{% url 'registration_register' %}">Register Now!</a></p>
 {% endblock %}

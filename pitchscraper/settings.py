@@ -39,7 +39,13 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'app',
     'home',
+    'registration',
 )
+
+REGISTRATION_OPEN = True
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = True
+LOGIN_URL = '/accounts/login/'
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -73,8 +79,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'pitchscraper.wsgi.application'
 
-
-LOGIN_REDIRECT_URL = '/'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
