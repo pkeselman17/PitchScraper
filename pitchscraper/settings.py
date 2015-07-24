@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'home',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -73,6 +74,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'pitchscraper.wsgi.application'
 
 
+LOGIN_REDIRECT_URL = '/'
+
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
@@ -106,7 +109,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = '/static/static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS= [
+    BASE_DIR,
+]
 
 
 
