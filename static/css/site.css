@@ -3,10 +3,14 @@ body{
 }
 
 footer{
-	position:fixed;
+	position:absolute;
 	width:100%;
 	bottom:0;
 	text-align:center;
 	font-size:12px;
 	font-weight: bold;
+}
+
+.top-bar .name h1 a{
+	color: rgba(250, 130, 7,1.0);
 }
