@@ -1,0 +1,21 @@
+#content{
+	margin-left: 75px;
+	margin-top:25px;
+	width:75%;
+}
+
+p{
+	margin-top:-15px;
+	margin-bottom:0px;
+}
+
+h3:nth-of-type(1){
+	margin-top:25px;
+}
+
+#container{
+	background-color: rgb(129, 176, 255);
+	box-shadow: 0 0 10px 1px;
+	border-radius: 10px;
+	width:600px;
+}

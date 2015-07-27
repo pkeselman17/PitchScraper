@@ -1,4 +1,52 @@
 {%extends "layout/base.html"%}
 {%block content%}
-	
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'static/css/home/index.css' %}"/>
+
+<div class="row" align="center">
+  <h1>Welcome to PitchScraper!</h1>
+  	<h3>Find a pickup game near you</h3>
+    <div id="container" class="row">
+      <div id="content" class="large-5 columns">
+        <div class="row">
+    
+              <select>
+                <option value="" disabled selected>Choose a Sport</option>
+                {% for sport in sports %}
+                  <option value="{{ sport.id }}">{{sport.name}}</option>
+                {% endfor %}
+              </select>
+        </div>
+        	<p>and</p>
+        <div class="row">
+            <div class="row collapse">
+              <div class="small-10 columns">
+                <input type="text" placeholder="Enter City">
+              </div>
+              <div class="small-2 columns">
+                <a href="#" class="button postfix">Go</a>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <h3>Or start your own!</h3>
+   <div id="container" class="row">
+      <div id="content" class="large-5 columns">
+        <div class="row">
+              <select>
+                <option value="" disabled selected>Choose a Sport</option>
+                {% for sport in sports %}
+                  <option value="{{ sport.id }}">{{sport.name}}</option>
+                {% endfor %}
+              </select>
+        </div>
+        <div class="row">
+          <button class="button small">Start!</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+
 {%endblock content%}
