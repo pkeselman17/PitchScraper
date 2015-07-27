@@ -7,6 +7,15 @@
 p{
 	margin-top:-15px;
 	margin-bottom:0px;
+	font-family:Lobster;
+}
+
+h1{
+	font-family:Lobster;
+}
+
+h3{
+	font-family: Lobster;
 }
 
 h3:nth-of-type(1){
@@ -14,8 +23,9 @@ h3:nth-of-type(1){
 }
 
 #container{
-	background-color: rgb(129, 176, 255);
+	background-color: rgba(250, 130, 7,1.0);
 	box-shadow: 0 0 10px 1px;
 	border-radius: 10px;
 	width:600px;
 }
+
