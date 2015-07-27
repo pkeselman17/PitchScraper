@@ -1,20 +1,25 @@
 {%extends "layout/base.html"%}
 {%block content%}
+{%load staticfiles%}
+<link rel="stylesheet" href="{%static 'static/css/accounts/login.css' %}"/>
 
 {%if form.errors%}
 	<p>Your username and password didn't match. Please try again.</p>
 {% endif %}
-<div class="row">
-	<div class="large-4 columns">
-		<h2>Login</h2>
+<div id="loginContainer" align="center">
+	<div class="row">
+		<div class="large-5 columns">
+			<h2>Login</h2>
+	
+			<form method="post" action=".">
+				{% csrf_token %}
+				{{form.as_p}}
+				
+				<input type="submit" class="button" value="Login"/>
+				<input type="hidden" name="next" value="{{ next }}"/>
+			</form>
+			<p>Not registered? <a href="{% url 'registration_register' %}">Register Now!</a></p>
+		</div>
 	</div>
 </div>
-	<form method="post" action=".">
-		{% csrf_token %}
-		{{form.as_p}}
-		
-		<input type="submit" class="button" value="Login"/>
-		<input type="hidden" name="next" value="{{ next }}"/>
-	</form>
-	<p>Not registered? <a href="{% url 'registration_register' %}">Register Now!</a></p>
 {% endblock %}

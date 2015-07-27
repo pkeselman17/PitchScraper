@@ -1,11 +1,18 @@
 {% extends "layout/base.html" %}
-
 {%block content%}
-<h1>Register Here</h1>
-        <form method="post" action=".">
-                {% csrf_token %}
-                {{ form.as_p }}
+{%load staticfiles%}
+<link rel="stylesheet" href="{%static 'static/css/accounts/registration.css' %}"/>
 
-                <input type="submit" value="Submit" />
-        </form>
+<div id="registrationContainer" align="center">
+        <div class="row">
+                <div class="large-5 columns">
+                        <h1>Register Here</h1>
+                        <form method="post" action=".">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <input class="button" type="submit" value="Submit" />
+                        </form>
+                </div>
+        </div>
+</div>
 {% endblock %}
