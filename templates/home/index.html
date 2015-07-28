@@ -2,7 +2,7 @@
 {%block content%}
 {% load staticfiles %}
 <link rel="stylesheet" href="{% static 'static/css/home/index.css' %}"/>
-<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
 
 <div class="row" align="center">
   <h1>Welcome to PitchScraper!</h1>
@@ -35,7 +35,7 @@
    <div id="container" class="row">
       <div id="content" class="large-5 columns">
         <div class="row">
-              <select>
+              <select id="newGameSelect">
                 <option value="" disabled selected>Choose a Sport</option>
                 {% for sport in sports %}
                   <option value="{{ sport.id }}">{{sport.name}}</option>
@@ -43,11 +43,22 @@
               </select>
         </div>
         <div class="row">
-          <button class="button success">Start!</button>
+          <button class="button success" onclick="call_create()">Start!</button>
         </div>
     </div>
   </div>
 </div>
-
-
+<script>
+  function call_create(){
+    var val = $("#newGameSelect").val();
+    var link = '{% url "game.views.create" sport='VALSUB' %}';
+    if(val === null){
+      link = link.replace('VALSUB','new');
+    }else{
+      link = link.replace('VALSUB', val);
+    }
+    
+    window.location.href=link;
+  }
+</script>
 {%endblock content%}

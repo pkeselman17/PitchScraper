@@ -1,0 +1,53 @@
+{% extends "layout/base.html"%}
+{% block content%}
+{% load staticfiles %}
+<script src="{%static 'static/js/jquery-ui.min.js'%}"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+<form method="POST">
+	{% csrf_token %}
+	<div class="row">
+		<div class="large-6 columns">
+			<label>Sport:
+				{{form.sport}}
+			</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-6 columns">
+			<label>Location:
+				<!--THIS WILL BE GOOGLE MAP-->
+				{{form.latitude}}
+				{{form.longitude}}				
+			</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-6 columns">
+			<label>Description:
+				{{form.description}}
+			</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-6 columns">
+			<label>Date/Time:
+				{{form.date}}
+			</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-6 columns">
+			<input type="submit" class="button success" value="Create"/>
+		</div>
+	</div>
+</form>
+<script>
+	$(function(){
+		$(".datepicker").datepicker({
+			minDate: '0'
+		});
+	});
+</script>
+
+{%endblock content%}

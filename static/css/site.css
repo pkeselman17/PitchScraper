@@ -9,8 +9,17 @@ footer{
 	text-align:center;
 	font-size:12px;
 	font-weight: bold;
+	clear:both;
 }
 
 .top-bar .name h1 a{
 	color: rgba(250, 130, 7,1.0);
+}
+
+h1{
+	font-family:Lobster;
+}
+
+h3{
+	font-family: Lobster;
 }
