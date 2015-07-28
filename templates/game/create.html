@@ -2,43 +2,64 @@
 {% block content%}
 {% load staticfiles %}
 <script src="{%static 'static/js/jquery-ui.min.js'%}"></script>
+<script src="{%static 'static/js/jquery.timepicker.min.js'%}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCR9YajUQLbgbyPuI5eIG7hzk0lCLyX5vA&libraries=places&sensor=false"></script>
+<script src="{%static 'static/js/game/maps.js'%}"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="{%static 'static/css/game/create.css'%}"/>
+<link rel="stylesheet" href="{%static 'static/css/jquery.timepicker.css'%}"/>
 
+<h1>Create a New Game</h1>
 <form method="POST">
 	{% csrf_token %}
-	<div class="row">
-		<div class="large-6 columns">
-			<label>Sport:
-				{{form.sport}}
-			</label>
+	<div class="container">
+		<div class="row">
+			<div class="large-7 columns">
+				<label>Sport:
+					{{form.sport}}
+				</label>
+			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="large-6 columns">
-			<label>Location:
-				<!--THIS WILL BE GOOGLE MAP-->
-				{{form.latitude}}
-				{{form.longitude}}				
-			</label>
+		<div class="row">
+			<div class="large-7 columns">
+				<label>Location:
+					<!--THIS WILL BE GOOGLE MAP-->
+					<div>
+                        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+                        <div id="map-canvas"></div>
+                    </div>
+                    <div id="locationSuccess" style="display: none; color: green;">Location captured!</div>
+					{{form.latitude}}
+					{{form.longitude}}				
+				</label>
+			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="large-6 columns">
-			<label>Description:
-				{{form.description}}
-			</label>
+		<div class="row">
+			<div class="large-7 columns">
+				<label>Description:
+					{{form.description}}
+				</label>
+			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="large-6 columns">
-			<label>Date/Time:
-				{{form.date}}
-			</label>
+		<div class="row">
+			<div class="large-7 columns">
+				<label>Date:
+					{{form.date}}
+				</label>
+			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="large-6 columns">
-			<input type="submit" class="button success" value="Create"/>
+		<div class="row">
+			<div class="large-7 columns">
+				<label>Time:
+					<input id="timeField" type="text" data-time-format="h:i A"/>
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-7 columns">
+				<input type="submit" class="button success" value="Create"/>
+				<a href="/" class="button alert">Cancel</a>
+			</div>
 		</div>
 	</div>
 </form>
@@ -46,6 +67,11 @@
 	$(function(){
 		$(".datepicker").datepicker({
 			minDate: '0'
+		});
+	});
+	$(function(){
+		$("#timeField").timepicker({
+			'scrollDefault':'now',
 		});
 	});
 </script>

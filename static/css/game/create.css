@@ -1,0 +1,57 @@
+form{
+	width:800px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+form .row{
+	margin-left:125px;
+	
+}
+
+form .row:first-of-type{
+	padding-top:20px;
+}
+
+h1{
+	text-align: center;
+}
+
+label{
+	font-weight:bold;
+}
+
+form .row:nth-of-type(3){
+	margin-top:5px;
+}
+
+.container{
+	background-color: rgba(250, 130, 7,1.0);
+	box-shadow: 0 0 10px 1px;
+	border:1px solid black;
+	border-radius: 10px;
+	width:600px;
+	margin-left:100px;
+}
+
+.button.success{
+	box-shadow: 0 0 5px 1px black;
+	margin-left:35px;
+	float:left;
+}
+
+.button.alert{
+	box-shadow: 0 0 5px 1px black;
+	margin-left: 5px;
+}
+
+label input{
+	box-shadow: 0 0 10px 1px black;
+}
+
+#map-canvas{
+	height:300px;
+	margin:0;
+	padding:0;
+	box-shadow: 0 0 5px 1px black;
+}
