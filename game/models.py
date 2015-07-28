@@ -3,7 +3,7 @@ from django.utils import timezone
 
 class Game(models.Model):
 	
-	sport = models.ForeignKey('Sport')
+	sport = models.ForeignKey('app.Sport')
 	latitude = models.FloatField(null=True, blank=True)
 	longitude = models.FloatField(null=True, blank=True)
 	description = models.CharField(max_length=300)

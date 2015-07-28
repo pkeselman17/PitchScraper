@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'app',
     'home',
     'registration',
+    'game',
 )
 
 REGISTRATION_OPEN = True
