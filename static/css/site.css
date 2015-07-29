@@ -36,8 +36,9 @@ h3{
 img.bg {
   /* Set rules to fill background */
   min-height: 75%;
-  min-width: 1024px;
+  min-width: 1292px;
   margin-bottom:10px;
+  margin-left:-6px;
 	
   /* Set up proportionate scaling */
   width: 100%;
