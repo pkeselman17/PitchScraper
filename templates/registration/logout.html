@@ -1,7 +1,14 @@
 {% extends "layout/base.html" %}
-
-
 {% block content %}
-<h1>Logged Out</h1>
-        <p>You are now logged out.</p>
+{%load staticfiles%}
+<link rel="stylesheet" href="{%static 'static/css/accounts/logout.css'%}" />
+<div class="logoutContainer">
+        <div class="row">
+                <div class="large-5 columns">
+                        <h1>Logged Out</h1>
+                        <p>You are now logged out.</p>
+                        <p><a href="/accounts/login/">Log back in</a></p>
+                </div>
+        <div class="row">        
+</div>
 {% endblock %}

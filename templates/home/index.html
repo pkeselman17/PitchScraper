@@ -4,13 +4,12 @@
 <link rel="stylesheet" href="{% static 'static/css/home/index.css' %}"/>
 
 
-<div class="row" align="center">
+<div class="row main" align="center">
   <h1>Welcome to PitchScraper!</h1>
   	<h3>Find a pickup game near you</h3>
     <div id="container" class="row">
       <div id="content" class="large-5 columns">
         <div class="row">
-    
               <select>
                 <option value="" disabled selected>Choose a Sport</option>
                 {% for sport in sports %}

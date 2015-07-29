@@ -1,3 +1,7 @@
+nav{
+	overflow:hidden;
+}
+
 #content{
 	margin-left: 75px;
 	margin-top:25px;
@@ -23,7 +27,7 @@ h3:nth-of-type(1){
 }
 
 #container{
-	background-color: rgba(250, 130, 7,1.0);
+	background-color: rgba(250, 130, 7, 0.9);
 	box-shadow: 0 0 10px 1px;
 	border-radius: 10px;
 	border: 1px solid black;
@@ -36,4 +40,8 @@ h3:nth-of-type(1){
 
 .button.success{
 	box-shadow: 0 0 5px 1px black;
+}
+
+.row.main{
+	margin-top:45px;
 }

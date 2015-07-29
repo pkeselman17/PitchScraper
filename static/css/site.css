@@ -1,12 +1,16 @@
 footer{
 	clear:both;
 	position:relative;
-	height:2em;
+	height:1em;
 	margin-top:4em;
 	text-align:center;
 	font-size:12px;
 	font-weight: bold;
-  color:white;
+  color:black;
+}
+
+body{
+  height:0px;
 }
 
 .top-bar{
@@ -33,6 +37,7 @@ img.bg {
   /* Set rules to fill background */
   min-height: 75%;
   min-width: 1024px;
+  margin-bottom:10px;
 	
   /* Set up proportionate scaling */
   width: 100%;
@@ -44,6 +49,8 @@ img.bg {
   position: fixed;
   top: 0;
   left: 0;
+  
+  opacity:0.65;
 }
 
 @media screen and (max-width: 1024px) { /* Specific to this particular image */

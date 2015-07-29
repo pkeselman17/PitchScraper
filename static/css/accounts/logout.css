@@ -1,8 +1,5 @@
-#loginContainer{
-	margin-left:440px;
-}
-
 .large-5.columns{
+	margin-left:300px;
 	background-color: rgba(250, 130, 7,0.9);
 	box-shadow: 0 0 10px 1px;
 	border:1px solid black;
@@ -11,9 +8,9 @@
 	margin-top: 80px;
 }
 
-h2{
+h1{
 	margin-top:45px;
-	font-family:Lobster;
+	text-align: center;
 }
 
 body{
@@ -21,5 +18,10 @@ body{
 }
 
 footer{
-	margin-top:10em;
+	margin-top:24em;
 }
+
+p{
+	text-align: center;
+}
+
