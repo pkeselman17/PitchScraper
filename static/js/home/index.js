@@ -17,7 +17,8 @@ $(document).ready(function(){
 	$(".button.postfix").on("click", function(){
 		var lat= $("#lat").val();
 		var lng= $("#lng").val();
-		var url= "/search?lat=" + lat + "&lng=" + lng;
+		var sport = $("select").val();
+		var url= "/search?sport=" + sport + "&lat=" + lat + "&lng=" + lng;
 		window.location.href= url;
 	});
 });
