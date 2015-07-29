@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^create/(?P<sport>[-\w]+)/','game.views.create'),
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^accounts/', include('django.contrib.auth.urls')),
+    url(r'^search/$', 'home.views.search'),
 ]
