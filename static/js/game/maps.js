@@ -18,6 +18,7 @@ function initialize() {
         zoom: 6,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         disableDefaultUI: true,
+        zoomControl: true,
         styles: myStyles
     };
     var map = new google.maps.Map(document.getElementById('map-canvas'),

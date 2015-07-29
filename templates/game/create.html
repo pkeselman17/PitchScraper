@@ -14,6 +14,11 @@
 	{% csrf_token %}
 	<div class="container">
 		<div class="row">
+			<div class="large-7 columns" id="errorContainer">
+				{{form.errors}}
+			</div>
+		</div>
+		<div class="row">
 			<div class="large-7 columns">
 				<label>Sport:
 					{{form.sport}}
@@ -22,7 +27,7 @@
 		</div>
 		<div class="row">
 			<div class="large-7 columns">
-				<label>Location:
+				<label>Location:<span id="locInstructions">(Search by address/name, click marker to get location)</span>
 					<!--THIS WILL BE GOOGLE MAP-->
 					<div>
                         <input id="pac-input" class="controls" type="text" placeholder="Search Box">
@@ -51,7 +56,7 @@
 		<div class="row">
 			<div class="large-7 columns">
 				<label>Time:
-					<input id="timeField" type="text" data-time-format="h:i A"/>
+					{{form.time}}
 				</label>
 			</div>
 		</div>
@@ -73,6 +78,9 @@
 		$("#timeField").timepicker({
 			'scrollDefault':'now',
 		});
+		// $("#timeField").on('changeTime', function(){
+		// 	$("#timeField").val($(this).val());
+		// });
 	});
 </script>
 

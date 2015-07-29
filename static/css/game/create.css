@@ -19,6 +19,19 @@ h1{
 
 label{
 	font-weight:bold;
+	color:black;
+}
+
+#errorContainer{
+	background-color: red;
+}
+
+
+#locInstructions{
+	color:white;
+	font-weight: normal;
+	font-size: 10px;
+	margin-bottom:1px;
 }
 
 form .row:nth-of-type(3){
@@ -26,7 +39,7 @@ form .row:nth-of-type(3){
 }
 
 .container{
-	background-color: rgba(250, 130, 7,1.0);
+	background-color: rgba(250, 130, 7,0.9);
 	box-shadow: 0 0 10px 1px;
 	border:1px solid black;
 	border-radius: 10px;
