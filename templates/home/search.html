@@ -1,11 +1,28 @@
 {%extends "layout/base.html"%}
-{%load staticfiles%}
 {%block content%}
-<br/>
-<br/>
-<br/>
+{%load staticfiles%}
+<link rel="stylesheet" href="{%static 'static/css/home/search.css' %}"/>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCR9YajUQLbgbyPuI5eIG7hzk0lCLyX5vA&libraries=places&sensor=false"></script>
+<script src="{%static 'static/js/home/search.js'%}"></script>
 
-{%for game in list%}
-<p>{{game.description}}</p>
-{%endfor%}
+<div class="content">
+	<div class="row">
+		<div class="large-12 medium-6 small-3 columns">
+			<h1>Showing results for {{list.0.sport}}:</h1>
+			<div class="row">
+		
+				<div class="large-6 medium-3 small-2 columns">
+					<div>
+                        <div id="map-canvas"></div>
+					</div>
+				</div>
+				{% for distance in distances %}
+				<div class="large-6 medium-3 small-2 columns">{{distances.0}} Miles away</div>
+				{{distances.pop.0}}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+
 {%endblock content%}

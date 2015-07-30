@@ -15,15 +15,19 @@ def search(request):
     lng = float(request.GET.get('lng'))
     allGames = Game.objects.all().filter(sport=sport_id)
     games=[]
+    distances=[]
     
+    #Check each game's distance from searched (lat,lng) and append those under 20 miles
     for g in allGames:
-        if distance_on_unit_sphere(lat,lng,g.latitude,g.longitude) <=20:
+        distance = calc_distance(lat,lng,g.latitude,g.longitude)
+        if distance <=20:
+            distances.append(distance)
             games.append(g)
             
-    return render(request, 'home/search.html', {'lat':lat, 'lng':lng, 'list':games})	
+    return render(request, 'home/search.html', {'list':games, 'distances':distances})	
 	
-	
-def distance_on_unit_sphere(lat1, long1, lat2, long2):
+#Calculates distance between (lat,lng) points	
+def calc_distance(lat1, long1, lat2, long2):
  
     # Convert latitude and longitude to 
     # spherical coordinates in radians.
@@ -47,7 +51,9 @@ def distance_on_unit_sphere(lat1, long1, lat2, long2):
 
     cos = (math.sin(phi1)*math.sin(phi2)*math.cos(theta1 - theta2) + math.cos(phi1)*math.cos(phi2))
     arc = math.acos( cos )
- 
-    # Remember to multiply arc by the radius of the earth 
-    # in your favorite set of units to get length.
-    return 3959 * arc
+    
+    #Convert to miles and round to 2 decimal points
+    
+    distance = float("{0:.2f}".format(3959 * arc))
+    return distance
+    
