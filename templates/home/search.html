@@ -9,20 +9,36 @@
 	<div class="row">
 		<div class="large-12 medium-6 small-3 columns">
 			<h1>Showing results for {{list.0.sport}}:</h1>
-			<div class="row">
-		
+			<div class="row placeHolder">		
 				<div class="large-6 medium-3 small-2 columns">
 					<div>
                         <div id="map-canvas"></div>
 					</div>
 				</div>
-				{% for distance in distances %}
-				<div class="large-6 medium-3 small-2 columns">{{distances.0}} Miles away</div>
-				{{distances.pop.0}}
-				{% endfor %}
+				<div class="large-6 medium-3 small-2 columns places">
+					
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
+<script>
+	$(document).ready(function(){
+		var markers = [];
+		var distances = [];
+		{%for game in list%}
+		var point = {
+			lat: {{game.latitude}},
+			lng: {{game.longitude}}
+		}
+		markers.push(point)
+		{%endfor%}
+		
+		{%for distance in distances%}
+		distances.push({{distance}})
+		{%endfor%}
+		initialize(markers,{{lat}}, {{lng}}, distances);
+	});
+</script>
 {%endblock content%}

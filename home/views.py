@@ -23,8 +23,8 @@ def search(request):
         if distance <=20:
             distances.append(distance)
             games.append(g)
-            
-    return render(request, 'home/search.html', {'list':games, 'distances':distances})	
+    distances.sort()            
+    return render(request, 'home/search.html', {'list':games, 'distances':distances, 'lat':lat, 'lng':lng})	
 	
 #Calculates distance between (lat,lng) points	
 def calc_distance(lat1, long1, lat2, long2):
@@ -54,6 +54,6 @@ def calc_distance(lat1, long1, lat2, long2):
     
     #Convert to miles and round to 2 decimal points
     
-    distance = float("{0:.2f}".format(3959 * arc))
+    distance = float("{0:.1f}".format(3959 * arc))
     return distance
     

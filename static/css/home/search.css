@@ -26,3 +26,24 @@ footer{
 	margin:0;
 	padding:0;
 }
+
+#map-pin{
+	width:22px;
+	float:left;
+	cursor:pointer;
+}
+
+#markerText{
+	float:left;
+	margin-left:6px;
+	height: 40px;
+    overflow: hidden;
+    position: absolute;
+	z-index:148;
+	cursor:pointer;
+}
+
+#distInfo{
+	float:left;
+	margin-left: 5px;
+}
