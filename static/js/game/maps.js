@@ -1,6 +1,5 @@
 var initialLocation;
 var browserSupportFlag = new Boolean();
-var newyork = new google.maps.LatLng(40.69847032728747, -73.9514422416687);
 
 function initialize() {
     var markers = [];
@@ -89,7 +88,28 @@ function initialize() {
             markers.push(marker);
 
             bounds.extend(place.geometry.location);
+            
         }
+        
+        google.maps.event.addListener(map, 'click', function(event){    
+            var newMarker = new google.maps.Marker({
+                map: map,
+                icon: image,
+                position: new google.maps.LatLng(event.latLng.lat(),event.latLng.lng()),
+            });
+            google.maps.event.addListener(newMarker, 'click', function () {
+                var lat = newMarker.getPosition().lat();
+                var long = newMarker.getPosition().lng();
+
+                $("#id_latitude").val(lat);
+                $("#id_longitude").val(long);
+
+                $("#locationSuccess").show();
+            });
+        });
+        
+       
+        
 
         map.fitBounds(bounds);
     });

@@ -18,8 +18,24 @@ $(document).ready(function(){
 		var lat= $("#lat").val();
 		var lng= $("#lng").val();
 		var sport = $("select").val();
-		var url= "/search?sport=" + sport + "&lat=" + lat + "&lng=" + lng;
-		window.location.href= url;
+		if(lat == "" && lng == "" && sport == null){
+			$("#pac-input").css("box-shadow", "0 0 10px 1px red");
+			$("select").css("box-shadow", "0 0 10px 1px red");
+		}
+		else if(sport == null){
+			$("#pac-input").css("box-shadow", "none");
+			
+			$("select").css("box-shadow", "0 0 10px 1px red");
+		}
+		else if(lat == "" && lng == ""){
+			$("select").css("box-shadow", "none");
+			
+			$("#pac-input").css("box-shadow", "0 0 10px 1px red");
+		}
+		else{
+			var url= "/search?sport=" + sport + "&lat=" + lat + "&lng=" + lng;
+			window.location.href= url;
+		}
 	});
 });
 

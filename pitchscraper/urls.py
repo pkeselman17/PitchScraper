@@ -20,7 +20,6 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^$', 'home.views.index'),    
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^sports', include('app.urls')),
     url(r'^create/(?P<sport>[-\w]+)/','game.views.create'),
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^accounts/', include('django.contrib.auth.urls')),
