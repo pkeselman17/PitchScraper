@@ -1,8 +1,9 @@
 var initialLocation;
 var browserSupportFlag = new Boolean();
+var markers = [];
 
 function initialize() {
-    var markers = [];
+    
     var myStyles = [
         {
             featureType: "poi",
@@ -91,26 +92,6 @@ function initialize() {
             
         }
         
-        google.maps.event.addListener(map, 'click', function(event){    
-            var newMarker = new google.maps.Marker({
-                map: map,
-                icon: image,
-                position: new google.maps.LatLng(event.latLng.lat(),event.latLng.lng()),
-            });
-            google.maps.event.addListener(newMarker, 'click', function () {
-                var lat = newMarker.getPosition().lat();
-                var long = newMarker.getPosition().lng();
-
-                $("#id_latitude").val(lat);
-                $("#id_longitude").val(long);
-
-                $("#locationSuccess").show();
-            });
-        });
-        
-       
-        
-
         map.fitBounds(bounds);
     });
     // [END region_getplaces]
@@ -122,7 +103,23 @@ function initialize() {
         searchBox.setBounds(bounds);
     });
 
+    google.maps.event.addListener(map, 'click', function(event){
+            setAllMap(null);    
+            var newMarker = new google.maps.Marker({
+                map: map,
+                position: new google.maps.LatLng(event.latLng.lat(),event.latLng.lng())
+            });
+            markers.push(newMarker);
+            google.maps.event.addListener(newMarker, 'click', function () {
+                var lat = newMarker.getPosition().lat();
+                var long = newMarker.getPosition().lng();
 
+                $("#id_latitude").val(lat);
+                $("#id_longitude").val(long);
+
+                $("#locationSuccess").show();
+            });
+        });
 }
 
 
@@ -135,5 +132,11 @@ function handleNoGeolocation(errorFlag) {
         initialLocation = newyork;
     }
     map.setCenter(initialLocation);
+}
+
+function setAllMap(map){
+    for(var i = 0;i < markers.length; i++){
+        markers[i].setMap(map);
+    }
 }
 google.maps.event.addDomListener(window, 'load', initialize);
