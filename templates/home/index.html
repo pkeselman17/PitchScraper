@@ -7,49 +7,48 @@
 <script src="{%static 'static/js/home/index.js' %}"></script>
 
 <div class="row main" align="center">
-  <h1>Welcome to PitchScraper!</h1>
-  	<h3>Find a pickup game near you</h3>
+    <div id="heading">
+      <h1>PitchScraper</h1>
+    </div>
     <div id="container" class="row">
+      <h3>Find a game</h3>
       <div id="content" class="large-5 columns">
         <div class="row">
-              <select>
-                <option value="" disabled selected>Choose a Sport</option>
-                {% for sport in sports %}
-                  <option value="{{ sport.id }}">{{sport.name}}</option>
-                {% endfor %}
-              </select>
+          <select id="findSport">
+            <option value="" disabled selected>Choose a Sport</option>
+              {% for sport in sports %}
+              <option value="{{ sport.id }}">{{sport.name}}</option>
+              {% endfor %}
+          </select>
         </div>
-        	<p>and</p>
         <div class="row">
-            <div class="row collapse">
-              <div class="small-10 columns">
-                <input id="pac-input" class="controls" type="text" placeholder="Enter city"/>
+          <div class="row collapse">
+            <div class="small-10 columns">
+              <input id="pac-input" class="controls" type="text" placeholder="Enter city"/>
                 <input id="lat" type="hidden"/>
                 <input id="lng" type="hidden"/>
-              </div>
-              <div class="small-2 columns">
-                <a href="javascript:void(0);" class="button postfix">Go</a>
-              </div>
-            </div>
+             </div>
+             <div class="small-2 columns">
+              <a href="javascript:void(0);" class="button postfix">Go</a>
+             </div>
+          </div>
         </div>
-    </div>
-  </div>
-  <h3>Or start your own!</h3>
-   <div id="container" class="row">
+      </div>
+      <h3>Start a game</h3>
       <div id="content" class="large-5 columns">
-        <div class="row">
-              <select id="newGameSelect">
-                <option value="" disabled selected>Choose a Sport</option>
-                {% for sport in sports %}
-                  <option value="{{ sport.id }}">{{sport.name}}</option>
-                {% endfor %}
-              </select>
-        </div>
-        <div class="row">
-          <button class="button success" onclick="call_create()">Start!</button>
-        </div>
-    </div>
-  </div>
+          <div class="row">
+                <select id="newGameSelect">
+                  <option value="" disabled selected>Choose a Sport</option>
+                  {% for sport in sports %}
+                    <option value="{{ sport.id }}">{{sport.name}}</option>
+                  {% endfor %}
+                </select>
+          </div>
+          <div class="row">
+            <button class="button success" onclick="call_create()">Start!</button>
+          </div>
+       </div>
+   </div>
 </div>
 <script>
   function call_create(){
