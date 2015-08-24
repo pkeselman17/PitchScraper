@@ -35,7 +35,6 @@ footer{
 #map-pin{
 	width:22px;
 	float:left;
-	cursor:pointer;
 }
 
 #markerText{
@@ -45,7 +44,7 @@ footer{
     overflow: hidden;
     position: absolute;
 	z-index:148;
-	cursor:pointer;
+	cursor:default;
 }
 
 #distInfo{
