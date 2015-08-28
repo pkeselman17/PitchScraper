@@ -3,14 +3,16 @@
 {%load staticfiles%}
 <link rel="stylesheet" href="{%static 'static/css/accounts/registration.css' %}"/>
 
+<h1>PitchScraper</h1>
 <div id="registrationContainer" align="center">
         <div class="row">
                 <div class="large-5 columns">
-                        <h1>Register Here</h1>
+                        <h2>Register Here</h2>
                         <form method="post" action=".">
                                 {% csrf_token %}
                                 {{ form.as_p }}
                                 <input class="button" type="submit" value="Submit" />
+                                <a href="/" class="button alert">Cancel</a>
                         </form>
                 </div>
         </div>

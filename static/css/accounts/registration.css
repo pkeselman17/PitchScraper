@@ -1,3 +1,31 @@
 #registrationContainer{
-	margin-left: 450px;
+	margin-left: 440px;
+}
+
+.large-5.columns{
+	background-color: rgba(250, 130, 7,0.9);
+	box-shadow: 0 0 10px 1px;
+	border:1px solid black;
+	border-radius: 10px;
+	width:400px;
+}
+
+h1{
+	font-family: Lobster;
+	margin-top:45px;
+	text-align: center;
+}
+
+h2{
+	margin-top:25px;
+	font-family: Lato,sans-serif;
+	font-weight:700;
+}
+
+body{
+	height:0px;
+}
+
+footer{
+	margin-top:-0.1em;
 }

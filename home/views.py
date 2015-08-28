@@ -1,8 +1,8 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import Permission, User
 from app.models import Sport
-from game.models import Game
-import math
+from game.models import Game 
+from .helpers import calc_distance
 
 def index(request):
     if request.user.is_authenticated():
@@ -25,35 +25,11 @@ def search(request):
             games.append(g)
     distances.sort()            
     return render(request, 'home/search.html', {'list':games, 'distances':distances, 'lat':lat, 'lng':lng})	
+    
+def profile(request, username):
+    if request.user.is_authenticated():
+        return render(request, 'home/profile.html', {'username':username,'user':request.user})
+    return redirect('/accounts/login/')
 	
-#Calculates distance between (lat,lng) points	
-def calc_distance(lat1, long1, lat2, long2):
- 
-    # Convert latitude and longitude to 
-    # spherical coordinates in radians.
-    degrees_to_radians = math.pi/180.0
-    
-    # phi = 90 - latitude
-    phi1 = (90.0 - lat1)*degrees_to_radians
-    phi2 = (90.0 - lat2)*degrees_to_radians
-    
-    # theta = longitude
-    theta1 = long1*degrees_to_radians
-    theta2 = long2*degrees_to_radians
-    
-    # Compute spherical distance from spherical coordinates.
-    
-    # For two locations in spherical coordinates 
-    # (1, theta, phi) and (1, theta', phi')
-    # cosine( arc length ) = 
-    #    sin phi sin phi' cos(theta-theta') + cos phi cos phi'
-    # distance = rho * arc length
 
-    cos = (math.sin(phi1)*math.sin(phi2)*math.cos(theta1 - theta2) + math.cos(phi1)*math.cos(phi2))
-    arc = math.acos( cos )
-    
-    #Convert to miles and round to 2 decimal points
-    
-    distance = float("{0:.1f}".format(3959 * arc))
-    return distance
     
